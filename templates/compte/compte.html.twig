@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Compte{% endblock %}
+
+{% block body %}
+
+{% if app.user %}
+<h1>Bonjour M/Mme {{app.user.nom}} {{app.user.prenom}}</h1>
+
+
+
+<ul>
+<li><a href="{{path('updateCompte')}}">Modifier profil</a></li>
+<li>Gérer mes adresses</li>
+<li>Historique</li>
+</ul>
+{% endif %}
+{% endblock %}

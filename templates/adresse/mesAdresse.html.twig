@@ -1,0 +1,20 @@
+{% extends 'base.html.twig'%}
+
+{% block title %}Mes adresses{% endblock %}
+
+{% block body %}
+<a href={{path('ajouterAdresse')}} class="card-link">
+<h4>ajouter une nouvelle adresse</h4>
+</a>
+{% for adr in app.user.adresses %}
+
+{{adr.libelle }}
+{{adr.prenom ~ ' ' ~ adr.nom}}
+{{adr.textAdresse}}
+{{adr.cp}} - {{adr.ville}} - {{adr.pays}}
+<a href={{path('modifierAdresse',{'id' : adr.id})}} class="card-link">Modifier</a>
+<a href={{path('supprimerAdresse',{'id' : adr.id})}} class="card-link">supprimer</a>
+<br>
+{% endfor %}
+
+{% endblock %}
